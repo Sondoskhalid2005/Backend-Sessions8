@@ -13,7 +13,7 @@ const UsersSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  subjects: [
+  frineds: [
     {
       type: String,
       required: true,
