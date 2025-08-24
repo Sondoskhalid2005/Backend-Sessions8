@@ -28,4 +28,23 @@ const signup = async (req, res) => {
   }
 }
 
-module.exports={signup}
+const addFriends = async (req, res) => {
+  const userId = req.params.userId;
+  const { username, friends } = req.body;
+  try {
+    const user = await Users.findByIdAndUpdate(userId, {
+      username: username,
+      friends: friends,
+    });
+    if (!user) {
+      res.status(404).json({ msg: "user not found" });
+    }
+
+    res.status(201).json({ msg: "updated your username and friends", data: user });
+  } catch (error) {
+    res.status(500).json({ msg: error.message });
+  }
+};
+
+
+module.exports={signup, addFriends}
