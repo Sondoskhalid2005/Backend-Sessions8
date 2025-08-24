@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require("express")
 const mongodb=require('mongoose')
-const router=require('../Session8-backend/routes/users.routes')
+const router=require('../session-8/routes/users.routes')
 const app = express()
 
 app.use(express.json())
