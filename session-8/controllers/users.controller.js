@@ -1,4 +1,4 @@
-const Users =require("../model/UsersDatabase")
+const Users =require("../model/users.model")
 
 const signup = async (req, res) => {
   const userdata = req.body;
