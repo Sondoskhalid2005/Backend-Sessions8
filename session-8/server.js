@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require("express")
 const mongodb=require('mongoose')
 const router=require('../session-8/routes/users.routes')
+const {connectTodb}=require("../session-8/databseConnection/connectedb")
 const app = express()
 
 app.use(express.json())
@@ -13,15 +14,12 @@ app.use(express.json())
 //         })
 //     .catch((error)=>{console.log("error connecting to database!")})
     
-try{
-app.listen(PORT, () => {
+
+app.listen(3000, () => {
   connectTodb();
-  console.log(`server is running on port ${PORT}`);
+  console.log(`server is running `);
 
 });
-}catch(error){
-  console.log("error connecting the database")
-}
 
 app.use("/users",router)
     
