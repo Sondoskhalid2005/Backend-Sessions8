@@ -1,17 +1,13 @@
 const Users =require("../model/UsersDatabase")
 
 const signup = async (req, res) => {
-  const { username, email, password } = req.body;
+  const userdata = req.body;
+  const email= req.body.email;
   const user = await Users.findOne({ email });
 
   try {
     if (user == null) {
-      const newuser = new Users({
-        username: username,
-        email: email,
-        password: password,
-      });
-
+      const newuser = new Users(userdata);
       await newuser.save();
       return res.status(201).json({
         msg: "user registered successfully!",
@@ -27,6 +23,29 @@ const signup = async (req, res) => {
     return res.status(500).json(error.message);
   }
 }
+
+// const signup = async (req, res) => {
+//   const newUser = req.body;
+//   const email=req.body.email
+//   const user = await Users.findOne({email});
+
+//   try {
+//     if (user == null) {
+//       Users.insertOne(newUser)
+//       return res.status(201).json({
+//         msg: "user registered successfully!",
+//         data: { newuser },
+//       });
+
+//     } else {
+//       return res
+//         .status(404)
+//         .json({ msg: "this email is taken please change it" });
+//     }
+//   } catch (error) {
+//     return res.status(500).json(error.message);
+//   }
+// }
 
 const addFriends = async (req, res) => {
   const userId = req.params.userId;

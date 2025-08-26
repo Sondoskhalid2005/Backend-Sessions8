@@ -5,13 +5,24 @@ const router=require('../session-8/routes/users.routes')
 const app = express()
 
 app.use(express.json())
-mongodb.connect(process.env.URL)
-    .then(()=>{
-     app.listen(process.env.PORT, ()=>{
-    console.log("connected to the server successfuly")}) 
-        })
-    .catch((error)=>{console.log("error connecting to database!")})
+
+// mongodb.connect(process.env.URL)
+//     .then(()=>{
+//      app.listen(process.env.PORT, ()=>{
+//     console.log("connected to the server successfuly")}) 
+//         })
+//     .catch((error)=>{console.log("error connecting to database!")})
     
+try{
+app.listen(PORT, () => {
+  connectTodb();
+  console.log(`server is running on port ${PORT}`);
+
+});
+}catch(error){
+  console.log("error connecting the database")
+}
+
 app.use("/users",router)
     
 
