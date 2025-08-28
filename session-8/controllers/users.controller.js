@@ -47,6 +47,23 @@ const signup = async (req, res) => {
 //   }
 // }
 
+const deleteUser=async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    const deletedUser = await Users.findByIdAndDelete(userId);
+
+    if (!deletedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json({ message: "User deleted successfully", user: deletedUser });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error while deleting user" });
+  }
+}
+
 const addFriends = async (req, res) => {
   const userId = req.params.userId;
   const { username, friends } = req.body;
@@ -66,4 +83,5 @@ const addFriends = async (req, res) => {
 };
 
 
-module.exports={signup, addFriends}
+
+module.exports={signup, addFriends , deleteUser}
