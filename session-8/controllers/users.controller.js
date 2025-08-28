@@ -66,12 +66,11 @@ const deleteUser=async (req, res) => {
 
 const addFriends = async (req, res) => {
   const userId = req.params.userId;
-  const { username, friends } = req.body;
-  try {
-    const user = await Users.findByIdAndUpdate(userId, {
-      username: username,
-      friends: friends,
-    });
+  const {friends } = req.body;
+  try { 
+    const user = await Users.findById(userId)
+    user.friends.push(friends)
+    await user.save()
     if (!user) {
       res.status(404).json({ msg: "user not found" });
     }
