@@ -28,7 +28,7 @@ Update a book title: `PUT /books/:id`
 Delete a book: `DELETE /books/:id`
 
 # Bonus Challenge: 
-## Return the 2 most recently added books (based on a createdAt field you add to the schema).  `GET /books/recent`
+## Return the 2 most recently added books. `GET /books/recent`
 
 ## Requirements:
 - Use proper file structuring 
