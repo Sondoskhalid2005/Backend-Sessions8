@@ -31,7 +31,7 @@ Delete a book: `DELETE /books/:id`
 ## Return the 2 most recently added books (based on a createdAt field you add to the schema).  `GET /books/recent`
 
 ## Requirements:
-**- Use proper file structuring**
-**- Use **Mongoose** for schema and database operations.**
-**- Test endpoints using **Postman** or   **Thunder**.**
-**- Handle errors gracefully (e.g., book not found).**
+- Use proper file structuring 
+- Use **Mongoose** for schema and database operations.
+- Test endpoints using **Postman** or   **Thunder**.
+- Handle errors gracefully (e.g., book not found).
