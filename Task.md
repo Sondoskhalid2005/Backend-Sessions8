@@ -2,7 +2,7 @@
 
 # Task Overview:
 
-# You will create a MongoDB database to manage books in a library. You will define a schema, implement CRUD operations.
+## You will create a MongoDB database to manage books in a library. You will define a schema, implement CRUD operations.
 
 ## 1. Create the Book Schema
 
