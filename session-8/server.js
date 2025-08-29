@@ -6,8 +6,7 @@ const app = express();
 
 app.use(express.json());
 
-mongodb
-  .connect(process.env.MONGO_URI)
+mongodb.connect(process.env.MONGO_URI)
   .then(() => {
     app.listen(process.env.PORT, () => {
       console.log("connected to the server successfuly");
@@ -18,13 +17,4 @@ mongodb
   });
 
 
-// connectDB()
-// .then(() => {
-//   app.listen(process.env.PORT, () => {
-//     console.log(`server is running `);
-//   });
-// })
-// .catch((error)=>{ 
-// console.error("Error connecting to the database:", error.message); 
-// })
 app.use("/users", router);
